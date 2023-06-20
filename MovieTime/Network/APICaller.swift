@@ -51,7 +51,7 @@ public class APICaller{
     }
     
     static func getResultFromSearch(withQuery query: String, completionHandler: @escaping (_ result: Result<MovieModel,NetworkError>) -> Void) {
-        var queryString = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        let queryString = query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
         let urlString = NetworkConstants.shared.searchServerAddress + queryString + "&api_key=" + NetworkConstants.shared.apiKey
         
         guard let url = URL(string: urlString) else {

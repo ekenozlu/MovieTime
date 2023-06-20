@@ -111,6 +111,7 @@ class FirstTabVC: UIViewController, UICollectionViewDataSource, UICollectionView
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         // GO TO MOVIE DETAIL PAGE (SOON)
+        openDetailsVC(trendingMoviesArray[indexPath.row])
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -122,7 +123,12 @@ class FirstTabVC: UIViewController, UICollectionViewDataSource, UICollectionView
         cell.movieImageView.sd_setImage(with: URL(string: NetworkConstants.shared.imageServerAddress + (movieArray[indexPath.row].posterPath ?? "")))
         cell.movieImageView.layer.cornerRadius = 9
         cell.movieTitle.text = movieArray[indexPath.row].title
-        cell.movieSubtitle.text = "\(String(describing: movieArray[indexPath.row].voteAverage))/10"
+        if movieParameter == .nowPlaying || movieParameter == .topRated {
+            cell.movieSubtitle.text = String(format: "%.1f", movieArray[indexPath.row].voteAverage ?? "NA") + "/10"
+        }
+        else {
+            cell.movieSubtitle.text = movieArray[indexPath.row].releaseDate
+        }
         return cell
     }
     
@@ -133,7 +139,13 @@ class FirstTabVC: UIViewController, UICollectionViewDataSource, UICollectionView
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         moviesTV.cellForRow(at: indexPath)?.selectionStyle = .none
         // GO TO MOVIE DETAIL PAGE (SOON)
-        
+        openDetailsVC(movieArray[indexPath.row])
     }
     
+    func openDetailsVC(_ result: ResultModel) {
+        let detailsVC = DetailVC(resultData: result)
+        DispatchQueue.main.async {
+            self.navigationController?.pushViewController(detailsVC, animated: true)
+        }
+    }
 }

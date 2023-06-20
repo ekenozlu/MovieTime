@@ -38,6 +38,13 @@ class SecondTabVC: UIViewController, UISearchBarDelegate, UITableViewDataSource,
         }
     }
     
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        searchResultsArray.removeAll()
+        DispatchQueue.main.async {
+            self.searchTableView.reloadData()
+        }
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return searchResultsArray.count
     }
@@ -52,6 +59,7 @@ class SecondTabVC: UIViewController, UISearchBarDelegate, UITableViewDataSource,
             photoPath = profilePath
         }
         cell.cellImagaView.sd_setImage(with: URL(string: (NetworkConstants.shared.imageServerAddress + photoPath)))
+        cell.cellImagaView.layer.cornerRadius = 9
         cell.cellTitle.text = searchResultsArray[indexPath.row].title ?? searchResultsArray[indexPath.row].name
         cell.cellSubtitle.text = searchResultsArray[indexPath.row].mediaType?.rawValue
         
@@ -65,7 +73,13 @@ class SecondTabVC: UIViewController, UISearchBarDelegate, UITableViewDataSource,
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         //Details VC
         searchTableView.cellForRow(at: indexPath)?.selectionStyle = .none
+        openDetailsVC(searchResultsArray[indexPath.row])
     }
-    
+    func openDetailsVC(_ result: ResultModel) {
+        let detailsVC = DetailVC(resultData: result)
+        DispatchQueue.main.async {
+            self.navigationController?.pushViewController(detailsVC, animated: true)
+        }
+    }
     
 }
