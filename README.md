@@ -17,6 +17,7 @@ In this demo app I created a movie database application on Swift with Storyboard
 2. Profile System with Firebase
 3. Custom Status Bar color
 4. Bug fixing (color change on tabbar and navbar)
+5. MVVM Structure Implementation
 
 
 | Main Screen | Search Screen   |
