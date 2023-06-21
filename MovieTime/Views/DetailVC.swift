@@ -79,7 +79,7 @@ class DetailVC: UIViewController {
         titleLabel.text = detailMovie?.title
         originalTitleLabel.text = detailMovie?.originalTitle
         
-        //descriptionLabel.text = detailMovie?.overview
+        descriptionLabel.text = detailMovie?.overview
         
     }
 
