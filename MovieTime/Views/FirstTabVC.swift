@@ -22,8 +22,8 @@ class FirstTabVC: UIViewController, UICollectionViewDataSource, UICollectionView
     @IBOutlet weak var topRatedButton: UIButton!
     @IBOutlet weak var upcomingButton: UIButton!
     
-    var trendingMoviesArray = [ResultModel]()
-    var movieArray = [ResultModel]()
+    var trendingMoviesArray = [CellResult]()
+    var movieArray = [CellResult]()
     var movieParameter: MovieListParameter = .nowPlaying
     
     override func viewDidLoad() {
@@ -142,8 +142,8 @@ class FirstTabVC: UIViewController, UICollectionViewDataSource, UICollectionView
         openDetailsVC(movieArray[indexPath.row])
     }
     
-    func openDetailsVC(_ result: ResultModel) {
-        let detailsVC = DetailVC(resultData: result)
+    func openDetailsVC(_ result: CellResult) {
+        let detailsVC = DetailVC(mediaType: result.mediaType ?? .movie, mediaID: result.id ?? 0)
         DispatchQueue.main.async {
             self.navigationController?.pushViewController(detailsVC, animated: true)
         }

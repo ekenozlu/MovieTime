@@ -12,6 +12,12 @@ class NetworkConstants {
     
     private init(){}
     
+    public var apiKey: String {
+        get {
+            return "188b7cc2a027cbbf38915b398655b0b8"
+        }
+    }
+    
     public var serverAddress: String {
         get {
             return "https://api.themoviedb.org/3/"
@@ -30,11 +36,12 @@ class NetworkConstants {
         }
     }
     
-    public var apiKey: String {
+    public var movieDetailsServerAddrees : String {
         get {
-            return "188b7cc2a027cbbf38915b398655b0b8"
+            return "https://api.themoviedb.org/3/movie/"
         }
     }
+    
 }
 
 //https://api.themoviedb.org/3/search/multi?query=Morgan&api_key=188b7cc2a027cbbf38915b398655b0b8

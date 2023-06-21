@@ -13,7 +13,7 @@ class SecondTabVC: UIViewController, UISearchBarDelegate, UITableViewDataSource,
     
     let searchVC = UISearchController(searchResultsController: nil)
     
-    var searchResultsArray = [ResultModel]()
+    var searchResultsArray = [CellResult]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,8 +75,8 @@ class SecondTabVC: UIViewController, UISearchBarDelegate, UITableViewDataSource,
         searchTableView.cellForRow(at: indexPath)?.selectionStyle = .none
         openDetailsVC(searchResultsArray[indexPath.row])
     }
-    func openDetailsVC(_ result: ResultModel) {
-        let detailsVC = DetailVC(resultData: result)
+    func openDetailsVC(_ result: CellResult) {
+        let detailsVC = DetailVC(mediaType: result.mediaType ?? .movie, mediaID: result.id ?? 0)
         DispatchQueue.main.async {
             self.navigationController?.pushViewController(detailsVC, animated: true)
         }

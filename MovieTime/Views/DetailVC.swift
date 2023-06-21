@@ -17,19 +17,49 @@ class DetailVC: UIViewController {
     @IBOutlet weak var originalTitleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     
-    var resultData: ResultModel
-    init(resultData: ResultModel) {
-        self.resultData = resultData
+    var mediaType: MediaType
+    var mediaID: Int
+    init(mediaType: MediaType, mediaID: Int) {
+        self.mediaType = mediaType
+        self.mediaID = mediaID
         super.init(nibName: "DetailVC", bundle: nil)
     }
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
+    var detailMovie: MovieDetailModel?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        configView()
+        getDetailDataFromAPI()
+        
+    }
+    
+    func getDetailDataFromAPI() {
+        APICaller.getMovieDetails(withMovieID: mediaID) { result in
+            switch result {
+            case .success(let success):
+                self.detailMovie = success
+                self.getMovieCastFromAPI()
+            case .failure(let failure):
+                print(failure.localizedDescription)
+            }
+        }
+    }
+    
+    func getMovieCastFromAPI() {
+        APICaller.getMovieCast(withMovieID: mediaID) { result in
+            switch result {
+            case .success(let success):
+                self.detailMovie?.cast = success
+                DispatchQueue.main.async {
+                    self.configView()
+                }
+            case .failure(let failure):
+                print(failure.localizedDescription)
+            }
+        }
     }
     
     func configView() {
@@ -39,17 +69,17 @@ class DetailVC: UIViewController {
         bottomView.layer.shadowOffset = .zero
         bottomView.layer.shadowRadius = 49
         
-        backdropImageView.sd_setImage(with: URL(string: NetworkConstants.shared.imageServerAddress + (resultData.backdropPath ?? "")))
+        backdropImageView.sd_setImage(with: URL(string: NetworkConstants.shared.imageServerAddress + (detailMovie?.backdropPath ?? "")))
        
         posterImageView.layer.borderColor = UIColor.white.cgColor
         posterImageView.layer.borderWidth = 3
         posterImageView.layer.cornerRadius = 9
-        posterImageView.sd_setImage(with: URL(string: NetworkConstants.shared.imageServerAddress + ((resultData.posterPath ?? resultData.profilePath) ?? "")))
+        posterImageView.sd_setImage(with: URL(string: NetworkConstants.shared.imageServerAddress + (detailMovie?.posterPath ?? "")))
         
-        titleLabel.text = resultData.title
-        originalTitleLabel.text = resultData.originalTitle
+        titleLabel.text = detailMovie?.title
+        originalTitleLabel.text = detailMovie?.originalTitle
         
-        descriptionLabel.text = resultData.overview
+        //descriptionLabel.text = detailMovie?.overview
         
     }
 

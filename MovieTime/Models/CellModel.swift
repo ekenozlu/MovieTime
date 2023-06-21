@@ -8,9 +8,9 @@
 import Foundation
 
 // MARK: - MovieModel
-struct MovieModel: Codable {
+struct CellModel: Codable {
     let page: Int?
-    let results: [ResultModel]?
+    let results: [CellResult]?
     let totalPages, totalResults: Int?
     let dates: Dates?
 
@@ -28,50 +28,28 @@ struct Dates: Codable {
 }
 
 // MARK: - Result
-struct ResultModel: Codable {
-    let adult: Bool?
-    let backdropPath: String?
+struct CellResult: Codable {
     let id: Int?
-    let title, originalLanguage, originalTitle, overview: String?
+    let title, originalTitle: String?
+    let name, originalName: String?
     let posterPath: String?
+    let profilePath: String?
     let mediaType: MediaType?
-    let genreIDS: [Int]?
     let popularity: Double?
     let releaseDate: String?
-    let video: Bool?
     let voteAverage: Double?
-    let voteCount: Int?
-    let name, originalName: String?
-    let gender: Int?
-    let knownForDepartment: String?
-    let profilePath: String?
-    let knownFor: [ResultModel]?
-    let firstAirDate: String?
-    let originCountry: [String]?
 
     enum CodingKeys: String, CodingKey {
-        case adult
-        case backdropPath = "backdrop_path"
         case id, title
-        case originalLanguage = "original_language"
         case originalTitle = "original_title"
-        case overview
-        case posterPath = "poster_path"
-        case mediaType = "media_type"
-        case genreIDS = "genre_ids"
-        case popularity
-        case releaseDate = "release_date"
-        case video
-        case voteAverage = "vote_average"
-        case voteCount = "vote_count"
         case name
         case originalName = "original_name"
-        case gender
-        case knownForDepartment = "known_for_department"
+        case posterPath = "poster_path"
         case profilePath = "profile_path"
-        case knownFor = "known_for"
-        case firstAirDate = "first_air_date"
-        case originCountry = "origin_country"
+        case mediaType = "media_type"
+        case popularity
+        case releaseDate = "release_date"
+        case voteAverage = "vote_average"
     }
 }
 
