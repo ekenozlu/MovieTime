@@ -68,10 +68,12 @@ class DetailVC: UIViewController {
         bottomView.layer.shadowOpacity = 1
         bottomView.layer.shadowOffset = .zero
         bottomView.layer.shadowRadius = 49
+        bottomView.layer.borderColor = UIColor(named: "Tinted Purple")?.cgColor
+        bottomView.layer.borderWidth = 3
         
         backdropImageView.sd_setImage(with: URL(string: NetworkConstants.shared.imageServerAddress + (detailMovie?.backdropPath ?? "")))
        
-        posterImageView.layer.borderColor = UIColor.white.cgColor
+        posterImageView.layer.borderColor = UIColor(named: "Tinted Purple")?.cgColor
         posterImageView.layer.borderWidth = 3
         posterImageView.layer.cornerRadius = 9
         posterImageView.sd_setImage(with: URL(string: NetworkConstants.shared.imageServerAddress + (detailMovie?.posterPath ?? "")))
