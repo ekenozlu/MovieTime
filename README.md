@@ -20,6 +20,8 @@ In this demo app I created a movie database application on Swift with Storyboard
 4. MVVM Structure Implementation
 
 
-| Main Screen | Search Screen   | Detail Screen   |
-| ----------- | --------------- | --------------- |
-| ![Main Screen](https://github.com/ekenozlu/MovieTime/blob/main/GitImages/main_screen.png "Main Screen") | ![Search Screen](https://github.com/ekenozlu/MovieTime/blob/main/GitImages/search_screen.png "Search Screen") | ![Detail Screen](https://github.com/ekenozlu/MovieTime/blob/main/GitImages/detail_screen.png "Detail Screen") |
+| Login Screen | Main Screen | Search Screen | Detail Screen |
+| ------------ | ----------- | ------------- | ------------- |
+| ![Login Screen](https://github.com/ekenozlu/MovieTime/blob/main/GitImages/login_screen.png "Login Screen") | ![Main Screen](https://github.com/ekenozlu/MovieTime/blob/main/GitImages/main_screen.png "Main Screen") | ![Search Screen](https://github.com/ekenozlu/MovieTime/blob/main/GitImages/search_screen.png "Search Screen") | ![Detail Screen](https://github.com/ekenozlu/MovieTime/blob/main/GitImages/detail_screen.png "Detail Screen") |
+| Cast List Screen | Season List Screen of TV Series | Movie List Screen of Person | |
+| ![Cast List Screen](https://github.com/ekenozlu/MovieTime/blob/main/GitImages/castlist_screen.png "Cast List Screen") | ![Season List Screen of TV Series](https://github.com/ekenozlu/MovieTime/blob/main/GitImages/seasonlist_screen.png "Season List Screen of TV Series") | ![Movie List Screen of Person](https://github.com/ekenozlu/MovieTime/blob/main/GitImages/personcastlist_screen.png "Movie List Screen of Person") | |
