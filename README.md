@@ -5,19 +5,23 @@ In this demo app I created a movie database application on Swift with Storyboard
 1. Main Screen with popular movies (Horizontal Collection View)
 2. Main Screen with 3 different movie lists (Table View)
 3. Search Screen with all results (Movie,Person,TV Show)
-4. Detail Screen for content (currently fixing bugs)
+4. Detail Screen for content
+5. Cast, Crew and Seasons List on Detail Screen
+6. Clickable TableView for Lists to present desired person,production details in new ViewController
+7. Custom Status Bar
+8. Non-functional login page
 
 ## In this demo app I used and practiced:
-1. UITabBar, UINavigationBar
-2. APICaller, DispatchQueue, URLSession
+1. UITabBar, UINavigationBar, UISearchBar
+2. APICaller, DispatchQueue, URLSession, Concurrency
 3. CollectionView, TableView
 4. UIKit and Storyboard
+5. Shadows, Layers, Borders
 
 ## Currently Working on
 1. Profile System with Firebase and Like, Review, Follow features
-2. Custom Status Bar color
-3. Bug fixing (color change on tabbar and navbar)
-4. MVVM Structure Implementation
+2. Bug fixing
+3. MVVM Structure Implementation
 
 
 | Login Screen | Main Screen | Search Screen | Detail Screen |
