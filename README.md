@@ -6,10 +6,11 @@ In this demo app I created a movie database application on Swift with Storyboard
 2. Main Screen with 3 different movie lists (Table View)
 3. Search Screen with all results (Movie,Person,TV Show)
 4. Detail Screen for content
-5. Cast, Crew and Seasons List on Detail Screen
-6. Clickable TableView for Lists to present desired person,production details in new ViewController
-7. Custom Status Bar
-8. Non-functional login page
+5. Genre List of Movies and TV Series
+6. Cast, Crew and Seasons List on Detail Screen
+7. Clickable TableView for Lists to present desired person,production details in new ViewController
+8. Custom Status Bar
+9. Non-functional login page
 
 ## In this demo app I used and practiced:
 1. UITabBar, UINavigationBar, UISearchBar
