@@ -52,67 +52,6 @@ struct MovieDetailModel: Codable {
     }
 }
 
-// MARK: - Cast
-struct Cast: Codable {
-    let adult: Bool?
-    let gender, id: Int?
-    let knownForDepartment: Department?
-    let name, originalName: String?
-    let popularity: Double?
-    let profilePath: String?
-    let castID: Int?
-    let character, creditID: String?
-    let order: Int?
-    let department: Department?
-    let job: String?
-
-    enum CodingKeys: String, CodingKey {
-        case adult, gender, id
-        case knownForDepartment = "known_for_department"
-        case name
-        case originalName = "original_name"
-        case popularity
-        case profilePath = "profile_path"
-        case castID = "cast_id"
-        case character
-        case creditID = "credit_id"
-        case order, department, job
-    }
-}
-
-enum Department: String, Codable {
-    case acting = "Acting"
-    case art = "Art"
-    case camera = "Camera"
-    case costumeMakeUp = "Costume & Make-Up"
-    case crew = "Crew"
-    case directing = "Directing"
-    case editing = "Editing"
-    case lighting = "Lighting"
-    case production = "Production"
-    case sound = "Sound"
-    case visualEffects = "Visual Effects"
-    case writing = "Writing"
-}
-
-// MARK: - BelongsToCollection
-struct BelongsToCollection: Codable {
-    let id: Int?
-    let name, posterPath, backdropPath: String?
-
-    enum CodingKeys: String, CodingKey {
-        case id, name
-        case posterPath = "poster_path"
-        case backdropPath = "backdrop_path"
-    }
-}
-
-// MARK: - Genre
-struct Genre: Codable {
-    let id: Int?
-    let name: String?
-}
-
 // MARK: - ProductionCompany
 struct ProductionCompany: Codable {
     let id: Int?
@@ -123,26 +62,5 @@ struct ProductionCompany: Codable {
         case logoPath = "logo_path"
         case name
         case originCountry = "origin_country"
-    }
-}
-
-// MARK: - ProductionCountry
-struct ProductionCountry: Codable {
-    let iso3166_1, name: String?
-
-    enum CodingKeys: String, CodingKey {
-        case iso3166_1 = "iso_3166_1"
-        case name
-    }
-}
-
-// MARK: - SpokenLanguage
-struct SpokenLanguage: Codable {
-    let englishName, iso639_1, name: String?
-
-    enum CodingKeys: String, CodingKey {
-        case englishName = "english_name"
-        case iso639_1 = "iso_639_1"
-        case name
     }
 }

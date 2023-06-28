@@ -42,7 +42,16 @@ class NetworkConstants {
         }
     }
     
+    public var tvDetailsServerAddrees : String {
+        get {
+            return "https://api.themoviedb.org/3/tv/"
+        }
+    }
+    
+    public var personDetailsServerAddrees : String {
+        get {
+            return "https://api.themoviedb.org/3/person/"
+        }
+    }
+    
 }
-
-//https://api.themoviedb.org/3/search/multi?query=Morgan&api_key=188b7cc2a027cbbf38915b398655b0b8
-//https://api.themoviedb.org/3/search/movie?query=Morgan?api_key=188b7cc2a027cbbf38915b398655b0b8

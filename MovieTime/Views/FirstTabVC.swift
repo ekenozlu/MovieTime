@@ -29,9 +29,15 @@ class FirstTabVC: UIViewController, UICollectionViewDataSource, UICollectionView
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Movie Time"
-        
+        configureNavBar()
+        self.setStatusBar(backgroundColor: .systemPurple)
         getTrendingMoviesFromAPI()
         getMovieListFromAPI()
+    }
+    
+    func configureNavBar() {
+        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationItem.backButtonTitle = "Back"
     }
     
     @IBAction func tapAction(_ sender: UIButton){
@@ -127,7 +133,7 @@ class FirstTabVC: UIViewController, UICollectionViewDataSource, UICollectionView
             cell.movieSubtitle.text = String(format: "%.1f", movieArray[indexPath.row].voteAverage ?? "NA") + "/10"
         }
         else {
-            cell.movieSubtitle.text = movieArray[indexPath.row].releaseDate
+            cell.movieSubtitle.text = movieArray[indexPath.row].releaseDate?.getProperYearFormat()
         }
         return cell
     }

@@ -18,9 +18,14 @@ class SecondTabVC: UIViewController, UISearchBarDelegate, UITableViewDataSource,
     override func viewDidLoad() {
         super.viewDidLoad()
         self.title = "Search Movies"
-        
+        configureNavBar()
         navigationItem.searchController = searchVC
         searchVC.searchBar.delegate = self
+    }
+    
+    func configureNavBar() {
+        self.navigationController?.navigationBar.tintColor = .white
+        self.navigationItem.backButtonTitle = "Back"
     }
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
