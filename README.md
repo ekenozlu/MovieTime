@@ -16,6 +16,7 @@ In this demo app I created a movie database application on Swift with Storyboard
 2. APICaller, DispatchQueue, URLSession, Concurrency
 3. CollectionView, TableView
 4. UIKit and Storyboard
+5. Shadows, Layers, Borders
 
 ## Currently Working on
 1. Profile System with Firebase and Like, Review, Follow features
