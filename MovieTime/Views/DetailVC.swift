@@ -39,6 +39,7 @@ class DetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureCells()
@@ -161,17 +162,8 @@ class DetailVC: UIViewController, UITableViewDelegate, UITableViewDataSource, UI
         posterGradientLayer.frame = backdropImageView.frame
         backdropImageView.layer.insertSublayer(posterGradientLayer, at: 0)
         
-        cardView.layer.cornerRadius = 9
-        cardView.layer.shadowColor = UIColor.black.cgColor
-        cardView.layer.shadowOpacity = 1
-        cardView.layer.shadowOffset = .zero
-        cardView.layer.shadowRadius = 49
-        cardView.layer.borderColor = UIColor(named: "Tinted Purple")?.cgColor
-        cardView.layer.borderWidth = 3
-        
-        posterImageView.layer.borderColor = UIColor(named: "Tinted Purple")?.cgColor
-        posterImageView.layer.borderWidth = 3
-        posterImageView.layer.cornerRadius = 9
+        cardView.configureView(UIColor(named: "Tinted Purple")!, 3, 9, UIColor.black, 1, 49)
+        posterImageView.configureView(UIColor(named: "Tinted Purple")!, 3, 9, UIColor.black, 0, 0)
         
         switch mediaType {
         case .movie:
